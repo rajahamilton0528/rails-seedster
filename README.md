@@ -43,6 +43,7 @@ The users data file should have been generated.
 
 * To test loads, reset the database: `rake db:reset`
 * We should have the data file in the `tmp` dirs.
+* To clear out the database and reset it, check the section below Resetting the Database
 * We can `truncate users, posts, comments` via `psql` to empty the tables out if we've already loaded data
 * Seedster can be configured to load from local files, without trying to download. In the Seedster initializer file, set the option `skip_download` to `true`.
 
@@ -55,4 +56,14 @@ rake seedster:load
 We should now have `users` data, running `User.first` in `rails console` should return the User.
 
 
+#### Resetting the Database
 
+From a `psql` prompt:
+
+```sql
+truncate posts,users,comments;
+
+ALTER SEQUENCE users_id_seq RESTART WITH 1;
+ALTER SEQUENCE posts_id_seq RESTART WITH 1;
+ALTER SEQUENCE comments_id_seq RESTART WITH 1;
+```
