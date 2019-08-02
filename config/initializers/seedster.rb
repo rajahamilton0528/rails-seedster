@@ -27,6 +27,14 @@ Seedster.configure do |c|
     {
       query: %{SELECT * FROM users WHERE id = '%{user_id}'},
       name: 'users'
+    },
+    {
+      query: %{SELECT p.* FROM posts p JOIN users u ON p.user_id = u.id WHERE u.id = '%{user_id}'},
+      name: 'posts'
+    },
+    {
+      query: %{SELECT c.* FROM comments c JOIN users u ON c.user_id = u.id WHERE u.id = '%{user_id}'},
+      name: 'comments'
     }
   ]
 end
