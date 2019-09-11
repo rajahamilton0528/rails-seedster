@@ -1,9 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  belongs_to: 
-
-two:
-  title: MyString
-  belongs_to: 
+first:
+  title: Cheese copters are great
+  post: cheesecopter
+  user: rosie
